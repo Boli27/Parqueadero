@@ -3,5 +3,5 @@
 
 -ubicar el proyecto en la carpeta htdocts de xampp para ejercutarlo con el siguiente enlace http://localhost/Parqueadero/index.php
 
--recordad encender myslq y apache en xampp
+-recordar encender myslq y apache en xampp
 
