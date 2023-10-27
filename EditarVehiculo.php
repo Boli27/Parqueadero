@@ -1,6 +1,5 @@
 <?php
 include("db.php");
-$tipo_vehiculo = '';
 $marca = '';
 $placa = '';
 $color = '';
@@ -14,7 +13,6 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
-        $tipo_vehiculo = $row['tipo_vehiculo'];
         $marca = $row['marca'];
         $placa = $row['placa'];
         $color = $row['color'];
@@ -24,12 +22,11 @@ if (isset($_GET['id'])) {
 //funcionalidad para el boton actualizar
 if (isset($_POST['actualizar'])) {
     $id = $_GET['id'];
-    $tipo_vehiculo = $_POST['tipo_vehiculo'];
     $marca = $_POST['marca'];
     $placa = $_POST['placa'];
     $color = $_POST['color'];
 
-    $query = "UPDATE vehiculos set marca = '$marca', placa = '$placa', tipo_vehiculo='$tipo_vehiculo', color = '$color' WHERE id=$id";
+    $query = "UPDATE vehiculos set marca = '$marca', placa = '$placa', color = '$color' WHERE id=$id";
     mysqli_query($conn, $query);
     $_SESSION['message'] = 'Actualizado con exito';
     $_SESSION['message_type'] = 'warning';
@@ -45,24 +42,21 @@ if (isset($_POST['actualizar'])) {
             <div class="card card-body">
                 <form action="EditarVehiculo.php?id=<?php echo $_GET['id']; ?>" method="POST">
                     <div class="form-group">
-                        <input type="text" name="tipo_vehiculo" class="form-control" placeholder="Tipo Vehiculo" value="<?php echo $tipo_vehiculo; ?>" autofocus>
-                    </div>
-                    <div class="form-group">
+                        <label  style="font-size:1rem;">Marca</label>
                         <input type="text" name="marca" class="form-control" placeholder="Marca" value="<?php echo $marca; ?>" autofocus>
                     </div>
                     <div class="form-group">
+                        <label  style="font-size:1rem;">Placa</label>
                         <input type="text" name="placa" class="form-control" placeholder="Placa" value="<?php echo $placa; ?>"  autofocus>
                     </div>
                     <div class="form-group">
+                        <label  style="font-size:1rem;">Color</label>
                         <input type="text" name="color" class="form-control" placeholder="Color" value="<?php echo $color; ?>" autofocus>
                     </div>
-                    <input type="submit" name="actualizar" class="btn btn-success btn-block" value="Agregar Vehiculo">
+                    <input type="submit" name="actualizar" class="btn btn-success btn-block" value="Editar Vehiculo">
                 </form>
             </div>
         </div>
     </div>
 </div>
 <?php include('includes/footer.php'); ?>
-
-
-?>

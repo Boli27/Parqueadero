@@ -14,13 +14,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <?php session_unset(); } ?>
+                <?php session_unset();
+            } ?>
 
             <!-- Formulario Agregar Vehiculo -->
             <div class="card card-body">
                 <form action="AgregarVehiculo.php" method="POST">
                     <div class="form-group">
-                        <input type="text" name="tipo_vehiculo" class="form-control" placeholder="Tipo Vehiculo" autofocus>
+                        <label for="tipo_vehiculo" style="font-size:1rem;">Tipo de vehiculo</label>
+                        <select name="tipo_vehiculo" class="form-control"  autofocus>
+                            <option value="carro">Carro</option>
+                            <option value="moto">Moto</option>
+                            <option value="camion">Camion</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" name="marca" class="form-control" placeholder="Marca" autofocus>
@@ -31,7 +37,8 @@
                     <div class="form-group">
                         <input type="text" name="color" class="form-control" placeholder="Color" autofocus>
                     </div>
-                    <input type="submit" name="AgregarVehiculo" class="btn btn-success btn-block" value="Agregar Vehiculo">
+                    <input type="submit" name="AgregarVehiculo" class="btn btn-success btn-block"
+                        value="Agregar Vehiculo">
                 </form>
             </div>
         </div>
@@ -75,13 +82,13 @@
                             </td>
                             <!-- botones donde llamamos a nuestras funcionalidades -->
                             <td>
-                                <a href="GenerarComprobante.php?id=<?php echo $row['id']?>" class="btn btn-secondary">
+                                <a href="GenerarComprobante.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
                                     <i class="fas fa-receipt"> Generar Comprobante</i>
                                 </a>
                                 <a href="VerComprobante.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
                                     <i class="fa-solid fa-eye"> Ver Comprobante</i>
                                 </a>
-                                
+
                                 <a href="EditarVehiculo.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
                                     <i class="fa-solid fa-pen-to-square">Editar</i>
                                 </a>

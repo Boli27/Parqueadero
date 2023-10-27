@@ -20,4 +20,9 @@
       <div class="container">
         <a class="navbar-brand" href="index.php">Parqueadero el Candado</a>
       </div>
+      <div class="container">
+        <a href="EditarTarifa.php">          
+          <button class="navbar-brand btn btn-primary">Cambiar Tarifas</button>
+        </a>
+      </div>
     </nav>
