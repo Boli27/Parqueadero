@@ -41,6 +41,36 @@ if (isset($_POST['actualizar'])) {
                 </form>
             </div>
         </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tipo Vehiculo</th>
+                        <th>Tarifa Por Hora</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <?php
+                    $query = "SELECT * FROM tarifas";
+                    $vehiculos = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($vehiculos)) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $row['tipo_vehiculo']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['precio_tarifa']; ?>
+                            </td>
+                            <!-- botones donde llamamos a nuestras funcionalidades -->
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
+    
 </div>
 <?php include('includes/footer.php'); ?>
